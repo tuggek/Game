@@ -1,0 +1,11 @@
+Generalize
+Dont use static values unless abilities
+Use a damage method to remove maxHP
+
+Fix terminal outputs to choose abilities
+Make it prettier
+Add more abilities
+
+Reward?
+Random Number Generator for damage outputs
+Make type add weaknesses (Multipliers for damage)
