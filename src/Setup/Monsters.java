@@ -3,6 +3,11 @@ package Setup;
 import java.util.ArrayList;
 import java.util.List;
 
+import Monsters.Creations;
+import Monsters.Magmar;
+import Monsters.Wataroo;
+
+
 public class Monsters {
     List<Creations> monsters;
 

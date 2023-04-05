@@ -1,4 +1,7 @@
-package Setup;
+package Monsters;
+
+import Setup.Type;
+
 public abstract class Creations {
     String name;
     int maxHP, damage = 0;
@@ -6,7 +9,6 @@ public abstract class Creations {
     boolean isAlive;
 
     
-
     public Creations(String name, int maxHP, Type type, boolean isAlive) {
         this.name = name;
         this.maxHP = maxHP;
@@ -16,7 +18,6 @@ public abstract class Creations {
 
     public Creations() {};
 
-    abstract void displayAbilities();
     
     public void use(int pick) {
         boolean movePicked = true;
@@ -42,7 +43,8 @@ public abstract class Creations {
         }
     }
     
-
+    public abstract void displayAbilities();
+    
     abstract String moveOne();
     
     abstract String moveTwo();
@@ -52,34 +54,55 @@ public abstract class Creations {
     abstract String moveFour();
 
 
+    //Getters
     public String getName() {
-        return name;
+        return this.name;
     } 
+
+    public int getMaxHP() {
+        return this.maxHP;
+    }
 
     public int getDamage() {
         return this.damage;
     }
 
+    public boolean getStatus() {
+        return this.isAlive;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
+    //Setters
+
+    public void setStatus(boolean status) {
+        this.isAlive = status;   
+    }
+
+    public void setMaxHP(int hp) {
+        this.maxHP = hp;
+    }
+    
     public void setDamage(int dmg) {
         resetDamage();
         this.damage = dmg;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     private void resetDamage() {
         this.damage = 0;
     }
 
-    public int getMaxHP() {
-        return this.maxHP;
-    }
 
     public void addMaxHP(int hp) {
         this.maxHP += hp;
     }
 
-    public void setMaxHP(int hp) {
-        maxHP = hp;
-    }
 
     
 }
