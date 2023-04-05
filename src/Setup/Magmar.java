@@ -8,6 +8,7 @@ public class Magmar extends Creations {
 
     @Override
     void displayAbilities() {
+        System.out.println("\nWhat will " + getName() + " do? (HP: " + maxHP +")");
         System.out.println("Choose a move: ");
         System.out.println("[1:   Ember   ]  [2:  Tackle  ]\n[3: Recovery  ]  [4:  Flare   ]");
     }

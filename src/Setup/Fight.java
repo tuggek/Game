@@ -1,5 +1,6 @@
 package Setup;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Fight {
@@ -16,24 +17,45 @@ public class Fight {
         System.out.println("Press 1 for: " + monsters.get(0).name);
         System.out.println("Press 2 for: " + monsters.get(1).name);
         System.out.println("*******************");
-        int n = sc.nextInt();
         
-            while(turn) {
-                if(n == 1) {
-                    monsters.get(0);
-                    System.out.println("You chose " + monsters.get(0).name.toUpperCase() + "!!");
-                    versus(monsters.get(0), monsters.get(1));
-                    turn = false;
-                } else if(n == 2) {
-                    monsters.get(1);
-                    System.out.println("You chose " + monsters.get(1).name.toUpperCase() + "!!");
-                    versus(monsters.get(1), monsters.get(0));
-                    turn = false;
-                } else if(n < 1 || n > 2) {
-                    System.out.println("Please choose either 1 or 2");
-                    n = sc.nextInt();
-                }
+        boolean repeat = true;
+        int pick = 0;
+        //Catches wrong input for picking a monster.
+        while(repeat) {
+            try {
+                pick = sc.nextInt();
+                repeat = false;
             }
+            catch(InputMismatchException e) {
+                System.out.println("Error: Please enter a number.");
+                repeat = true;
+                sc.nextLine();
+            }
+        }
+        pickPhase(turn, pick);
+                
+                
+    }
+
+    private void pickPhase(boolean turn, int n) {
+        while(turn) {
+            if(n == 1) {
+                monsters.get(0);
+                System.out.println("You chose " + monsters.get(0).name.toUpperCase() + "!!");
+                versus(monsters.get(0), monsters.get(1));
+                turn = false;
+           }
+            else if(n == 2) {
+                monsters.get(1);
+                System.out.println("You chose " + monsters.get(1).name.toUpperCase() + "!!");
+                versus(monsters.get(1), monsters.get(0));
+                turn = false;
+            } 
+            else if(n < 1 || n > 2) {
+                System.out.println("Please choose either 1 or 2");
+                n = sc.nextInt();
+            }
+        }
     }
     
 
@@ -55,11 +77,21 @@ public class Fight {
     }
 
     private void turn(Creations m1, Creations m2) {
-            System.out.println("*******************");
-            System.out.println("What will " + m1.name + " do? (HP: " + m1.getMaxHP() + " )");
             
-            m1.displayAbilities();
-            int selectMove = sc.nextInt();
+            int selectMove = 0;
+            boolean repeat = true;
+            while(repeat)
+            try {
+                
+                m1.displayAbilities();
+                selectMove = sc.nextInt();
+                repeat = false;
+            }catch(InputMismatchException e) {
+                System.out.println("\nERROR: Enter a number\n");
+                
+                repeat = true;
+                sc.nextLine();
+            }
             
             while(selectMove < 0 || selectMove > 4) {
                 System.out.println("Please choose 1, 2, 3 or 4.");
@@ -115,5 +147,6 @@ public class Fight {
             System.out.println(m1.getName() + " has won the battle!");
         }
     }
-    
 }
+    
+
