@@ -54,6 +54,11 @@ public abstract class Creations {
     abstract String moveFour();
 
 
+    public void addMaxHP(int hp) {
+        this.maxHP += hp;
+    }
+
+
     //Getters
     public String getName() {
         return this.name;
@@ -97,12 +102,5 @@ public abstract class Creations {
     private void resetDamage() {
         this.damage = 0;
     }
-
-
-    public void addMaxHP(int hp) {
-        this.maxHP += hp;
-    }
-
-
     
 }

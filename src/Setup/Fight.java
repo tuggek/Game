@@ -134,7 +134,7 @@ public class Fight {
 
 
     private void useMove(Creations m1, Creations m2) {
-        m2.setMaxHP(Math.abs(m2.getMaxHP()-m1.getDamage()));
+        m2.setMaxHP(m2.getMaxHP()-m1.getDamage());
     }
     
     private void winner(Creations m1, Creations m2) {
