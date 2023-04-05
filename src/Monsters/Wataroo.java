@@ -11,7 +11,7 @@ public class Wataroo extends Creations {
 
     @Override
     public void displayAbilities() {
-        System.out.println("\nWhat will " + getName() + " do? (HP: " + maxHP +")");
+        System.out.println("\nWhat will " + getName() + " do? (HP: " + getMaxHP() +")");
         System.out.println("Choose a move: ");
         System.out.println("[1: Water-gun ]  [2:  Tackle    ]\n[3: Recovery  ]  [4:  Bubbles   ]");
     }

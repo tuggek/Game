@@ -9,3 +9,15 @@ Add more abilities
 Reward?
 Random Number Generator for damage outputs
 Make type add weaknesses (Multipliers for damage)
+
+//
+Encapsulate usage in the abilities themselves
+@Override
+void moveFour(Creations other) {
+  if (other.health - 30 > 0){
+    other.removeHp(30);
+    sout("HAHAHA You just got less health!");
+  }
+  sout("Move was inefficient!");
+}
+//
