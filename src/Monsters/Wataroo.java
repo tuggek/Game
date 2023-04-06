@@ -5,7 +5,7 @@ import Setup.Type;
 public class Wataroo extends Creations {
 
     public Wataroo() {
-        super("Wataroo", 120, Type.WATER, true, 15);
+        super("Wataroo", 120, Type.WATER, true, 20);
     }
 
 
@@ -13,7 +13,7 @@ public class Wataroo extends Creations {
     public void displayAbilities() {
         System.out.println("\nWhat will " + getName() + " do? (HP: " + getMaxHP() +")");
         System.out.println("Choose a move: ");
-        System.out.println("[1: Water-gun ]  [2:  Tackle    ]\n[3: Recovery  ]  [4:  Bubbles   ]");
+        System.out.println("[1: Water-gun ]  [2:  Tackle    ]\n[3: Recovery  ]  [4:  Growl   ]");
     }
 
 
@@ -22,6 +22,7 @@ public class Wataroo extends Creations {
         super.setDamage(50);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
         System.out.println(super.getName() + " used water-gun! (" + other.getMaxHP() + ")");
+        System.out.println("----");
     }
 
 
@@ -30,6 +31,7 @@ public class Wataroo extends Creations {
         super.setDamage(20);
         other.setMaxHP(other.getMaxHP() - this.getDamage());
         System.out.println(super.getName() + " used tackle! (" + other.getMaxHP() + ")");
+        System.out.println("----");
     }
 
 
@@ -50,14 +52,16 @@ public class Wataroo extends Creations {
                 System.out.println(super.getName() + " healed " + heal +  " hp!");
             }
         }
+        System.out.println("----");
     }
 
 
     @Override
     void moveFour(Creations other) {
-        super.setDamage(40);
-        other.setMaxHP(other.getMaxHP() - super.getDamage());
-        System.out.println(super.getName() + " used bubble! (" + other.getMaxHP() + ")");
+        other.setSpeed(other.getSpeed() - 15);
+        System.out.println(super.getName() + " used growl!");
+        System.out.println(other.getName() + " speed fell!");
+        System.out.println("----");
     }
 
 }
