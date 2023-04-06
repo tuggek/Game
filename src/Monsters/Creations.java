@@ -4,22 +4,22 @@ import Setup.Type;
 
 public abstract class Creations {
     String name;
-    int maxHP, damage = 0;
+    int maxHP, damage = 0, speed = 0;
     Type type;
     boolean isAlive;
 
     
-    public Creations(String name, int maxHP, Type type, boolean isAlive) {
+    public Creations(String name, int maxHP, Type type, boolean isAlive, int speed) {
         this.name = name;
         this.maxHP = maxHP;
         this.type = type;
         this.isAlive = isAlive;
+        this.speed = speed;
     } 
 
-    public Creations() {};
 
     public void use(int pick, Creations other) {
-        boolean movePicked = true;
+        boolean movePicked = true; 
         while(movePicked) {
             switch(pick) {
                 case 1:
@@ -41,7 +41,8 @@ public abstract class Creations {
             }
         }
     }
-    
+
+    //Abstracts
     public abstract void displayAbilities();
     
     abstract void moveOne(Creations other);
@@ -79,6 +80,10 @@ public abstract class Creations {
         return this.type;
     }
 
+    public int getSpeed() {
+        return this.speed;
+    }
+
     //Setters
     public void setStatus(boolean status) {
         this.isAlive = status;   
@@ -89,7 +94,7 @@ public abstract class Creations {
     }
     
     public void setDamage(int dmg) {
-        resetDamage();
+        this.damage = 0; //Reset
         this.damage = dmg;
     }
 
@@ -97,8 +102,8 @@ public abstract class Creations {
         this.type = type;
     }
 
-    private void resetDamage() {
-        this.damage = 0;
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
     
 }

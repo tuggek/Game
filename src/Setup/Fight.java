@@ -61,44 +61,69 @@ public class Fight {
     private void versus(Creations m1, Creations m2) {
         System.out.println(m1.getName() +  " VS " + m2.getName());
         System.out.println(" ");
-        boolean vsTurn = true;
         
         while(m1.getStatus() && m2.getStatus()) {
-            if(vsTurn) {
                 turn(m1, m2);
-                vsTurn = false;
-            } else {
-                turn(m2, m1);
-                vsTurn = true;
-            }
         }
         winner(m1, m2);
     }
 
+
     private void turn(Creations m1, Creations m2) {         
             int selectMove = 0;
             boolean repeat = true;
-            while(repeat)
-            try {
-                
-                m1.displayAbilities();
-                selectMove = sc.nextInt();
-                repeat = false;
-            }catch(InputMismatchException e) {
-                System.out.println("\nERROR: Enter a number\n");
-                repeat = true;
-                sc.nextLine();
+            while(repeat) {
+                try {
+                    m1.displayAbilities();
+                    selectMove = sc.nextInt();
+                    repeat = false;
+                }catch(InputMismatchException e) {
+                    System.out.println("\nERROR: Enter a number\n");
+                    repeat = true;
+                    sc.nextLine();
+                }
             }
-            
+
             while(selectMove < 0 || selectMove > 4) {
                 System.out.println("Please choose 1, 2, 3 or 4.");
                 selectMove = sc.nextInt();
             }
-            
-            chooseMove(m1, m2, selectMove);
+
+            int selectMove2 = turn2(m2);
+
+            if(m1.getSpeed() >= m2.getSpeed()) {
+                chooseMove(m1, m2, selectMove);
+                chooseMove(m2, m1, selectMove2);
+            } else if(m2.getSpeed() >= m1.getSpeed()) {
+                chooseMove(m2, m1, selectMove2);
+                chooseMove(m1, m2, selectMove);
+            }
             postRound(m2);
     }
 
+    //Method used to get a second value to compare.
+    private int turn2(Creations m2) {
+        int selectMove = 0;
+            boolean repeat = true;
+            while(repeat) {
+                try {
+                    m2.displayAbilities();
+                    selectMove = sc.nextInt();
+                    repeat = false;
+                }catch(InputMismatchException e) {
+                    System.out.println("\nERROR: Enter a number\n");
+                    repeat = true;
+                    sc.nextLine();
+                }
+            }
+
+            while(selectMove < 0 || selectMove > 4) {
+                System.out.println("Please choose 1, 2, 3 or 4.");
+                selectMove = sc.nextInt();
+            }
+            return selectMove;
+    }
+    
     private void chooseMove(Creations m1, Creations m2, int select) {
         switch(select) {
             case 1: 
@@ -107,7 +132,7 @@ public class Fight {
             case 2:
                 m1.use(select, m2);
                 break;
-             case 3: //Recovery
+             case 3:
                 m1.use(select, m2);
                 break;
             case 4:
@@ -123,7 +148,6 @@ public class Fight {
             m1.setStatus(false);
         }
     }
-
 
     
     private void winner(Creations m1, Creations m2) {

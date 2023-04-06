@@ -5,7 +5,7 @@ import Setup.Type;
 public class Magmar extends Creations {
     
     public Magmar() {
-        super("Magmar", 120, Type.FIRE, true);
+        super("Magmar", 120, Type.FIRE, true, 10);
     }
 
     @Override
@@ -20,14 +20,14 @@ public class Magmar extends Creations {
     void moveOne(Creations other) {
         super.setDamage(50);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        System.out.println(super.getName() + " used ember!");
+        System.out.println(super.getName() + " used ember! (" + other.getMaxHP() + ")");
     }
 
     @Override
     void moveTwo(Creations other) {
         super.setDamage(20);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        System.out.println(super.getName() + " used tackle!");
+        System.out.println(super.getName() + " used tackle! (" + other.getMaxHP() + ")");
     }
 
     @Override
@@ -53,10 +53,6 @@ public class Magmar extends Creations {
     void moveFour(Creations other) {
         super.setDamage(30);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        System.out.println(super.getName() + " used flare!");
+        System.out.println(super.getName() + " used flare! (" + other.getMaxHP() + ")");
     }
-
-    
-
-
 }

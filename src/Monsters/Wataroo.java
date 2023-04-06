@@ -5,7 +5,7 @@ import Setup.Type;
 public class Wataroo extends Creations {
 
     public Wataroo() {
-        super("Wataroo", 120, Type.WATER, true);
+        super("Wataroo", 120, Type.WATER, true, 15);
     }
 
 
@@ -21,7 +21,7 @@ public class Wataroo extends Creations {
     void moveOne(Creations other) {
         super.setDamage(50);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        System.out.println(super.getName() + " used water-gun!");
+        System.out.println(super.getName() + " used water-gun! (" + other.getMaxHP() + ")");
     }
 
 
@@ -29,7 +29,7 @@ public class Wataroo extends Creations {
     void moveTwo(Creations other) {
         super.setDamage(20);
         other.setMaxHP(other.getMaxHP() - this.getDamage());
-        System.out.println(super.getName() + " used tackle!");
+        System.out.println(super.getName() + " used tackle! (" + other.getMaxHP() + ")");
     }
 
 
@@ -57,7 +57,7 @@ public class Wataroo extends Creations {
     void moveFour(Creations other) {
         super.setDamage(40);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        System.out.println(super.getName() + " used bubble!");
+        System.out.println(super.getName() + " used bubble! (" + other.getMaxHP() + ")");
     }
 
 }
