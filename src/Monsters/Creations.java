@@ -18,25 +18,24 @@ public abstract class Creations {
 
     public Creations() {};
 
-    
-    public void use(int pick) {
+    public void use(int pick, Creations other) {
         boolean movePicked = true;
         while(movePicked) {
             switch(pick) {
                 case 1:
-                    System.out.println(getName() + " used " + moveOne());
+                    System.out.println(getName() + " used " + moveOne(other));
                     movePicked = false;   
                     break;
                 case 2:
-                    System.out.println(getName() + " used " + moveTwo());
+                    System.out.println(getName() + " used " + moveTwo(other));
                     movePicked = false;
                     break;
                 case 3:
-                    System.out.println(getName() + " used " + moveThree());
+                    System.out.println(getName() + " used " + moveThree(other));
                     movePicked = false;
                     break;
                 case 4:
-                    System.out.println(getName() + " used " + moveFour());
+                    System.out.println(getName() + " used " + moveFour(other));
                     movePicked = false;
                     break;
             }
@@ -45,13 +44,13 @@ public abstract class Creations {
     
     public abstract void displayAbilities();
     
-    abstract String moveOne();
+    abstract String moveOne(Creations other);
     
-    abstract String moveTwo();
+    abstract String moveTwo(Creations other);
 
-    abstract String moveThree();
+    abstract String moveThree(Creations other);
 
-    abstract String moveFour();
+    abstract String moveFour(Creations other);
 
 
     public void addMaxHP(int hp) {
@@ -81,7 +80,6 @@ public abstract class Creations {
     }
 
     //Setters
-
     public void setStatus(boolean status) {
         this.isAlive = status;   
     }

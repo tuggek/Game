@@ -103,20 +103,16 @@ public class Fight {
     private void chooseMove(Creations m1, Creations m2, int select) {
         switch(select) {
             case 1: 
-                m1.use(select);
-                useMove(m1,m2);
+                m1.use(select, m2);
                 break;
             case 2:
-                m1.use(select);
-                useMove(m1,m2);
+                m1.use(select, m2);
                 break;
              case 3: //Recovery
-                m1.use(select);
-                m1.getMaxHP();
+                m1.use(select, m2);
                 break;
             case 4:
-                m1.use(select);
-                useMove(m1,m2);
+                m1.use(select, m2);
                 break;
         }
     }

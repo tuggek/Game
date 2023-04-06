@@ -18,29 +18,32 @@ public class Wataroo extends Creations {
 
 
     @Override
-    String moveOne() {
+    String moveOne(Creations other) {
         super.setDamage(50);
+        other.setMaxHP(other.getMaxHP() - super.getDamage());
         return "water gun";
     }
 
 
     @Override
-    String moveTwo() {
+    String moveTwo(Creations other) {
         super.setDamage(20);
+        other.setMaxHP(other.getMaxHP() - this.getDamage());
         return "tackle";
     }
 
 
     @Override
-    String moveThree() {
+    String moveThree(Creations other) {
         super.addMaxHP(30);
         return "recovery";
     }
 
 
     @Override
-    String moveFour() {
-        super.setDamage(20);
+    String moveFour(Creations other) {
+        super.setDamage(40);
+        other.setMaxHP(other.getMaxHP() - super.getDamage());
         return "bubble";
     }
 
