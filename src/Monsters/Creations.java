@@ -23,19 +23,19 @@ public abstract class Creations {
         while(movePicked) {
             switch(pick) {
                 case 1:
-                    System.out.println(getName() + " used " + moveOne(other));
+                    moveOne(other);
                     movePicked = false;   
                     break;
                 case 2:
-                    System.out.println(getName() + " used " + moveTwo(other));
+                    moveTwo(other);
                     movePicked = false;
                     break;
                 case 3:
-                    System.out.println(getName() + " used " + moveThree(other));
+                    moveThree(other);
                     movePicked = false;
                     break;
                 case 4:
-                    System.out.println(getName() + " used " + moveFour(other));
+                    moveFour(other);
                     movePicked = false;
                     break;
             }
@@ -44,13 +44,13 @@ public abstract class Creations {
     
     public abstract void displayAbilities();
     
-    abstract String moveOne(Creations other);
+    abstract void moveOne(Creations other);
     
-    abstract String moveTwo(Creations other);
+    abstract void moveTwo(Creations other);
 
-    abstract String moveThree(Creations other);
+    abstract void moveThree(Creations other);
 
-    abstract String moveFour(Creations other);
+    abstract void moveFour(Creations other);
 
 
     public void addMaxHP(int hp) {

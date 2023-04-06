@@ -58,25 +58,24 @@ public class Fight {
     }
     
 
-    private void versus(Creations monsterOne, Creations monsterTwo) {
-        System.out.println(monsterOne.getName() +  " VS " + monsterTwo.getName());
+    private void versus(Creations m1, Creations m2) {
+        System.out.println(m1.getName() +  " VS " + m2.getName());
         System.out.println(" ");
         boolean vsTurn = true;
         
-        while(monsterOne.getStatus() && monsterTwo.getStatus()) {
+        while(m1.getStatus() && m2.getStatus()) {
             if(vsTurn) {
-                turn(monsterOne, monsterTwo);
+                turn(m1, m2);
                 vsTurn = false;
             } else {
-                turn(monsterTwo, monsterOne);
+                turn(m2, m1);
                 vsTurn = true;
             }
         }
-        winner(monsterOne, monsterTwo);
+        winner(m1, m2);
     }
 
-    private void turn(Creations m1, Creations m2) {
-            
+    private void turn(Creations m1, Creations m2) {         
             int selectMove = 0;
             boolean repeat = true;
             while(repeat)
@@ -119,19 +118,13 @@ public class Fight {
     
 
     private void postRound(Creations m1) {
-        if(m1.getMaxHP() > 0) {
-            System.out.println(m1.getName() + " is " + m1.getMaxHP() + " HP!");
-        }
-        else if(m1.getMaxHP() <= 0) {
+        if(m1.getMaxHP() <= 0) {
             m1.setMaxHP(0);
             m1.setStatus(false);
         }
     }
 
 
-    private void useMove(Creations m1, Creations m2) {
-        m2.setMaxHP(m2.getMaxHP()-m1.getDamage());
-    }
     
     private void winner(Creations m1, Creations m2) {
         if(m1.getMaxHP() == 0) {

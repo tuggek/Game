@@ -17,30 +17,43 @@ public class Magmar extends Creations {
 
 
     @Override
-    String moveOne(Creations other) {
+    void moveOne(Creations other) {
         super.setDamage(50);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        return "ember";
+        System.out.println(super.getName() + " used ember!");
     }
 
     @Override
-    String moveTwo(Creations other) {
+    void moveTwo(Creations other) {
         super.setDamage(20);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        return "tackle";
+        System.out.println(super.getName() + " used tackle!");
     }
 
     @Override
-    String moveThree(Creations other) {
-        super.addMaxHP(30);
-        return "recovery";
+    void moveThree(Creations other) {
+        int heal = 30;
+        if(super.getMaxHP() >= 120) {
+            super.setMaxHP(120);
+            System.out.println(super.getName() + " is already max hp!");
+        }
+        else {
+            int currentHP = super.getMaxHP();
+            super.addMaxHP(heal);
+            if(super.getMaxHP() >= 120) {
+                System.out.println(super.getName() + " healed " + (120 - currentHP) + " hp!");
+                super.setMaxHP(120);
+            } else {
+                System.out.println(super.getName() + " healed " + heal +  " hp!");
+            }
+        }
     }
 
     @Override
-    String moveFour(Creations other) {
+    void moveFour(Creations other) {
         super.setDamage(30);
         other.setMaxHP(other.getMaxHP() - super.getDamage());
-        return "flare";
+        System.out.println(super.getName() + " used flare!");
     }
 
     
