@@ -13,7 +13,4 @@ Make type add weaknesses (Multipliers for damage)
 When both moves are selected, it should then start dealing damage.
 If monster1 has a higher speed attribute than monster2, then monster1 will hit first.
 
-m1 choose a move, save value
-m2 choose a move, save value
-compare speeds
-execute value depending on whoever has higher speed attribute
+done?
